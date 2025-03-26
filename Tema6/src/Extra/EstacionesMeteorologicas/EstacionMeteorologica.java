@@ -1,5 +1,7 @@
 package Extra.EstacionesMeteorologicas;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 
 public class EstacionMeteorologica {
@@ -7,12 +9,13 @@ public class EstacionMeteorologica {
     private static int contadorSensores = 0;
     private String ubicacion;
     private double altitud;
-    private Set<Sensor> sensoresInstalados;
+    private Set<Sensor> conjuntoSensoresInstalados;
 
     public EstacionMeteorologica(String ubicacion, double altitud) {
         this.idUnico = contadorSensores++;
         this.ubicacion = ubicacion;
         this.altitud = altitud;
+        this.conjuntoSensoresInstalados = new HashSet<>();
     }
 
     public int getIdUnico() {
@@ -27,7 +30,11 @@ public class EstacionMeteorologica {
         return altitud;
     }
 
-    public void anyadirSensor(Sensor sensor) {
-        sensoresInstalados.add(sensor);
+    public boolean addSensor(Sensor sensor) {
+        return conjuntoSensoresInstalados.add(sensor);
+    }
+
+    public boolean eliminarSensor(Sensor sensor) {
+        return conjuntoSensoresInstalados.remove(sensor);
     }
 }
