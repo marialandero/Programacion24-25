@@ -11,5 +11,23 @@ import java.io.*;
 
 public class Ejercicio3 {
     public static void main(String[] args) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+             PrintWriter os = new PrintWriter(new FileWriter("salidaEj3.txt", true))) {
+
+            String l;
+            System.out.println("Introduce líneas de texto. Escribe 'fin' para terminar:");
+
+            while ((l = br.readLine()) != null) {
+                if (l.equalsIgnoreCase("fin")) {
+                    break;
+                }
+                os.println(l);
+                os.flush(); // Asegura que se escriba inmediatamente en el archivo
+            }
+
+            System.out.println("Texto añadido al archivo salidaEj3.txt");
+        } catch (IOException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
     }
 }
