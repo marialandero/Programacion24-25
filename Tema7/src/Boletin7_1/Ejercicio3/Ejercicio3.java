@@ -1,7 +1,10 @@
 package Boletin7_1.Ejercicio3;
 
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *3. Realiza un programa que acepte líneas del teclado y las añada a un fichero llamado
@@ -15,7 +18,7 @@ public class Ejercicio3 {
              PrintWriter os = new PrintWriter(new FileWriter("salidaEj3.txt", true))) {
 
             String l;
-            System.out.println("Introduce líneas de texto. Escribe 'fin' para terminar:");
+            System.out.println("Agrega líneas en el archivo de texto. Para terminar, escribe 'fin'.");
 
             while ((l = br.readLine()) != null) {
                 if (l.equalsIgnoreCase("fin")) {
@@ -27,7 +30,7 @@ public class Ejercicio3 {
 
             System.out.println("Texto añadido al archivo salidaEj3.txt");
         } catch (IOException e) {
-            System.err.println("Error: " + e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 }
