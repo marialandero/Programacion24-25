@@ -34,4 +34,10 @@ public class Equipo {
             throw new EquipoException("El alumno ya está en el equipo.");
         }
     }
+
+    public void eliminarAlumno(Alumno alumno) throws EquipoException {
+        if (!alumnos.remove(alumno)) {
+            throw new EquipoException("El alumno no está en el equipo");
+        }
+    }
 }
