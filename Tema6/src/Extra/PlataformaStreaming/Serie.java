@@ -2,13 +2,13 @@ package Extra.PlataformaStreaming;
 
 import java.util.*;
 
-public class Serie {
+public class Serie implements Comparable<Serie> {
     private String titulo;
     private String genero;
     private int temporadas;
     private Set<Usuario> suscriptores;
 
-    public Serie(String titulo, String genero, int temporadas, Set<Usuario> suscriptores) {
+    public Serie(String titulo, String genero, int temporadas) {
         this.titulo = titulo;
         this.genero = genero;
         this.temporadas = temporadas;
@@ -82,5 +82,10 @@ public class Serie {
     @Override
     public int hashCode() {
         return Objects.hash(titulo, genero, temporadas, suscriptores);
+    }
+
+    @Override
+    public int compareTo(Serie o) {
+        return Integer.compare(suscriptores.size(), o.suscriptores.size());
     }
 }

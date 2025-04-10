@@ -7,7 +7,7 @@ public class Usuario {
     private String correo;
     private Set<Serie> seriesEnSeguimiento;
 
-    public Usuario(String nombre, String correo, Set<Serie> seriesEnSeguimiento) {
+    public Usuario(String nombre, String correo) {
         this.nombre = nombre;
         this.correo = correo;
         this.seriesEnSeguimiento = new HashSet<>();

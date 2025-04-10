@@ -1,16 +1,18 @@
 package Extra.PlataformaStreaming;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class PlataformaStream {
     private Set<Usuario> usuarios;
     private Set<Serie> series;
 
     public PlataformaStream(Set<Usuario> usuarios, Set<Serie> series) {
-        this.usuarios = usuarios;
-        this.series = series;
+        this.usuarios = new LinkedHashSet<>();
+        this.series = new HashSet<>();
+    }
+
+    public PlataformaStream() {
+
     }
 
     /**
@@ -66,7 +68,7 @@ public class PlataformaStream {
     }
 
     /**
-     * Este método compara a los usuarios basándose en sus nombres.
+     * Este método compara a los usuarios basándose en sus nombres y devuelve una lista ordenada alfabéticamente.
      * @param serie
      * @return
      * @throws PlataformaException
@@ -83,5 +85,50 @@ public class PlataformaStream {
             throw new PlataformaException("La serie no tiene suscriptores.\n");
         }
         return suscriptoresOrdenados;
+    }
+
+    /**
+     * Obtiene la lista de series que sigue un usuario ordenads por cantidad de temporadas (de mayor a menor).
+     * @param usuario
+     * @return
+     * @throws PlataformaException
+     */
+    public List<Serie> listaDeSeriesQueSigueUnUsuarioOrdenadasPorCantidadSeguidores (Usuario usuario) throws PlataformaException {
+        if (!usuarios.contains(usuario)) {
+            throw new PlataformaException("El usuario no está registrado en la plataforma.\n");
+        }
+        return series.stream()
+                .filter(serie -> serie.getSuscriptores().contains(usuario))
+                .sorted((seriaA, serieB) -> Integer.compare(serieB.getTemporadas(), seriaA.getTemporadas()))
+                .toList();
+    }
+
+    /**
+     * Para este método se ha implementado la interfaz Comparable en la calse Serie para poder usar el método
+     * compareTo y así comparar las series que tengan el número más grande de seguidores.
+     * @return
+     * @throws PlataformaException
+     */
+    public List<Serie> seriesMasPopulares() throws PlataformaException {
+        Serie serieMasPopular = series.stream()
+                .max((serieA, serieB) -> {
+                    return serieB.compareTo(serieA);
+                }).orElseThrow(() -> new PlataformaException("No hay series, no puedo obtener la serie más famosa."));
+
+        return series.stream()
+                .filter(serie -> serie.getSuscriptores().size() == serieMasPopular.getSuscriptores().size())
+                .toList();
+    }
+
+    public String obtenerGeneroMasPopular() {
+        Map<String, Integer> generoConSeguidores = new HashMap<>();
+        for (Serie serie : series) {
+            generoConSeguidores.put(serie.getGenero().trim().toLowerCase(), serie.getSuscriptores().size());
+        }
+        // generoConSeguidores.keySet().stream().max()
+        return generoConSeguidores.entrySet().stream()
+                .max(Map.Entry.comparingByValue())
+                .map(Map.Entry::getKey)
+                .orElse("No hay géneros disponibles");
     }
 }
