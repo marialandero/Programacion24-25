@@ -3,6 +3,7 @@ package Boletin7_2.Ejercicio2;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
@@ -34,15 +35,19 @@ public class Ejercicio2 {
         }
         AtomicInteger contador = new AtomicInteger();
         try (Stream<String> flujo = Files.lines(fichero)) {
-            contador.set(contador.get()+1);
             Pattern p = Pattern.compile(buscarPalabra);
             flujo.map(s -> p.matcher(s)).forEach(m -> {
-                if (m.find()) {
-                    Files.writeString(ficheroBuscandoPalabra, String.format("Encontrada en línea %d, columna %d.\n", contador, m.start()));
+                contador.set(contador.get()+1);
+                while (m.find()) {
+                    try {
+                        Files.writeString(ficheroBuscandoPalabra, String.format("Encontrada en línea %d, columna %d.\n",
+                                contador.get(), m.start()), StandardOpenOption.APPEND);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
-
             });
-        } catch (IOException e) {
+        } catch (IOException | RuntimeException e) {
             System.out.println(e.getMessage());
         }
     }
