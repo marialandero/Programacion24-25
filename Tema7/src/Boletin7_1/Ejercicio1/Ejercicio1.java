@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-/**
+/*
  * 1. Dado el contenido del siguiente archivo, cuenta cuántas líneas tiene.
  * Hola. Esta es la primera línea
  * de un fichero
