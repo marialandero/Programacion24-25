@@ -20,8 +20,8 @@ public class Ej4EntradaTecladoNIO {
                 // Mientras hayan líneas que leer y ninguna sea 'fin', se añaden
 
                 Files.writeString(rutaArchivo, linea+"\n", StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-                // Para que el texto se añada en el archivo, hay que indicar la ruta, el contenido almacenado
-                // en la variable linea. Además, con las StandardOpenOption se indica que si el archivo no existe,
+                // Para que el texto se añada en el archivo, hay que indicar la ruta y el contenido almacenado en la variable linea en los dos primeros parámetros.
+                // Además, con las StandardOpenOption se indica que si el archivo no existe,
                 // se cree, y si existe, se añada el contenido con append sin sobreescribirlo.
             }
             System.out.println("El texto ha sido añadido correctamente.");
