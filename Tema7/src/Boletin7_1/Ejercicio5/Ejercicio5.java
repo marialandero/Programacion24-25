@@ -84,7 +84,7 @@ public class Ejercicio5 {
                 throw new DirectorioException("No existe el archivo");
             }
         } catch (IOException e) {
-            throw new DirectorioException("No se puede crear: "+e.getMessage());
+            throw new DirectorioException("No se puede borrar: "+e.getMessage());
         } catch (InvalidPathException e) {
             throw new DirectorioException(e.getMessage());
         }
