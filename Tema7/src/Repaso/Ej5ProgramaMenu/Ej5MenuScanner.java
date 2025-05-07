@@ -98,6 +98,11 @@ public class Ej5MenuScanner {
         }
     }
 
+    /**
+     * Método para crear un fichero de texto
+     * @param sc
+     * @throws DirectorioSCException
+     */
     public static void crearFicheroDeTexto(Scanner sc) throws DirectorioSCException {
         System.out.println("Introduce el nombre del fichero que deseas crear con su extensión .txt");
         String nombre = sc.nextLine();

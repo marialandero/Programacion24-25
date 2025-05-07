@@ -1,0 +1,22 @@
+Juan Pérez nació el 12/04/1985 en Buenos Aires, Argentina. Su correo electrónico es juan.perez85@gmail.com, pero también usa juan_p@empresa.org para temas laborales. Tiene dos números de teléfono: +54 9 11 5555-1234 y 011-4321-9876.
+
+En su tiempo libre, Juan suele visitar sitios como https://www.stackoverflow.com, http://github.com/juanperez y www.noticias.com.ar. También tiene un blog personal en https://blog.juanperez.dev, donde escribe sobre Java, patrones de diseño y expresiones regulares.
+
+El número de identificación de Juan es AFX-2345-ZT, pero en formularios antiguos aparece como AFX2345ZT. Su contraseña habitual era “Password123!”, aunque ahora usa gestores de contraseñas.
+
+La matrícula de su coche Citröen Jumpy es 7667-CBZ.
+
+Repite constantemente la frase “La práctica hace al maestro.” para motivarse. De hecho, esta frase aparece varias veces en su diario:
+- La práctica hace al maestro.
+- La práctica hace al maestro.
+- La práctica hace al maestro.
+
+En su agenda hay fechas importantes:
+- 01-01-2023: Año Nuevo
+- 14-02-2023: Día de San Valentín
+- 25/12/2023: Navidad
+
+Algunas palabras clave que usa en sus clases:
+Regex, patrón, cuantificador, clase de caracteres, literal, matcher, Pattern, String, find(), matches(), replaceAll().
+
+Fin del texto.
