@@ -24,7 +24,7 @@ public class Main {
         listaPersonas.add(new Persona("Abri", "34556558a", "32454657", LocalDate.of(1997, 10, 18)));
         listaPersonas.add(new Persona("Franci", "42524565f", "89756756", LocalDate.of(1993, 11, 26)));
         listaPersonas.add(new Persona("Rafa", "68764345r", "45765868", LocalDate.of(1999, 10, 26)));
-        // crearXML();
+        crearXML(listaPersonas);
     }
 
     public static void crearXML(List<Persona> listaPersonas) {

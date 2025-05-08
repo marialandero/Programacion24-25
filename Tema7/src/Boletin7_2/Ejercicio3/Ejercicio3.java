@@ -14,7 +14,7 @@ mínimo. Estarán separadas por un espacio
 public class Ejercicio3 {
     public static void main(String[] args) {
 
-        try (BufferedReader miLector = new BufferedReader(new FileReader("src/Boletin7_2/Ejercicio3/miFichero.txt"))) {
+        try (BufferedReader miLector = new BufferedReader(new FileReader("src/Boletin7_2/Ejercicio3/MiFichero.txt"))) {
             String linea;
             boolean esValido = true;
             while ((linea = miLector.readLine()) != null) {
