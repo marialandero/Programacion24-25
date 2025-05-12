@@ -51,7 +51,8 @@ public class GeneradorFichasApp {
             Document documento = db.parse(archivoXML);
             documento.getDocumentElement().normalize(); // En este caso no sería necesario normalizar el documento porque de por sí está bastante limpio, pero lo uso porque es una buena práctica.
 
-            NodeList listaNodosVideojuegos = documento.getElementsByTagName("videojuego"); // Buscamos todos los nodos <videojuego> del XML y creamos una lista con ellos.
+            // Buscamos todos los nodos <videojuego> del XML y creamos una lista con ellos
+            NodeList listaNodosVideojuegos = documento.getElementsByTagName("videojuego");
             // Se recorre cada nodo de la lista
             for (int i = 0; i < listaNodosVideojuegos.getLength(); i++) {
                 Node nodoVideojuego = listaNodosVideojuegos.item(i);
